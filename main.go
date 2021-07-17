@@ -11,19 +11,19 @@ func main() {
 	results := make([]string, 0)
 	algos.Generate_str(&results, 4, 0, "")
 	fmt.Println(results)
-	matrix, M, N := algos.Input_two_dimensional_arr()
-	fmt.Println(matrix)
-	visited := make([][]bool, M)
-	regions := 0
-	for i := 0; i < M; i++ {
-		for j := 0; j < N; j++ {
-			if !visited[i][j] && matrix[i][j] == 1 {
-				algos.Check_connected_components(matrix, &visited, i, j, M, N)
-				regions += 1
-			}
-		}
-	}
-	fmt.Println("Region count is ", regions)
+	// matrix, M, N := algos.Input_two_dimensional_arr()
+	// fmt.Println(matrix)
+	// visited := make([][]bool, M)
+	// regions := 0
+	// for i := 0; i < M; i++ {
+	// 	for j := 0; j < N; j++ {
+	// 		if !visited[i][j] && matrix[i][j] == 1 {
+	// 			algos.Check_connected_components(matrix, &visited, i, j, M, N)
+	// 			regions += 1
+	// 		}
+	// 	}
+	// }
+	// fmt.Println("Region count is ", regions)
 
 	// Initiate singly linked list
 	list := linkedlist.LinkedList{Head: nil, Size: 0}
@@ -186,4 +186,45 @@ func main() {
 	} else {
 		cll.Display()
 	}
+
+	// Check for cycle
+	fmt.Println(list.CheckIfNilTerminated())
+	newList := linkedlist.LinkedList{Head: nil, Size: 0}
+	fmt.Println(newList.CheckIfNilTerminated())
+	node1 := linkedlist.ListNode{Val: 10, Next: nil}
+	newList.Head = &node1
+	node2 := linkedlist.ListNode{Val: 10, Next: nil}
+	node3 := linkedlist.ListNode{Val: 10, Next: nil}
+	node4 := linkedlist.ListNode{Val: 10, Next: nil}
+	node5 := linkedlist.ListNode{Val: 10, Next: newList.Head}
+	newList.Head.Next = &node2
+	newList.Head.Next.Next = &node3
+	newList.Head.Next.Next.Next = &node4
+	newList.Head.Next.Next.Next.Next = &node5
+
+	fmt.Println(newList.CheckIfNilTerminated())
+
+	//Reverse a list
+	list.Display()
+	err = list.InsertAtXPos(12, 2345)
+	if err != nil {
+		fmt.Println(err.Error())
+	} else {
+		list.Display()
+	}
+	err = list.ReverseList()
+	if err != nil {
+		fmt.Println(err.Error())
+	} else {
+		list.Display()
+	}
+
+	linkedlist.ReversePrint(list.Head)
+	fmt.Println("\n", list.CheckEvenOrOddLength())
+	list.DeleteNode(9)
+	list.Display()
+	fmt.Println("\n", list.CheckEvenOrOddLength())
+
+	err, ans := list.FindMid()
+	fmt.Println("mid is ", ans)
 }

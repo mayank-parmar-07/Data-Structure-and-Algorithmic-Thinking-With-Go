@@ -34,6 +34,7 @@ func (ll *LinkedList) Display() {
 		fmt.Print(tempNode.Val, "-->")
 		tempNode = tempNode.Next
 	}
+	fmt.Println()
 }
 
 func (ll *LinkedList) InsertFirst10ElementsToListAtStart() {
@@ -80,6 +81,7 @@ func (ll *LinkedList) DeleteNode(x int) error {
 	head := ll.Head
 	if head.Val == x {
 		ll.Head = ll.Head.Next
+		return nil
 	}
 	for head != nil {
 		if head.Next.Val == x {
