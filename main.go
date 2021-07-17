@@ -227,4 +227,11 @@ func main() {
 
 	err, ans := list.FindMid()
 	fmt.Println("mid is ", ans)
+
+	// Solve Jospheus
+	visited := map[int]bool{}
+	for i := 0; i < 100; i++ {
+		visited[i] = false
+	}
+	algos.Josepheus(visited, 100, 2, 0, 100)
 }
