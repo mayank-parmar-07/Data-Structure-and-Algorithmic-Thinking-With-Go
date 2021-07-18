@@ -212,7 +212,7 @@ func main() {
 	} else {
 		list.Display()
 	}
-	err = list.ReverseList()
+	err, _ = list.ReverseList()
 	if err != nil {
 		fmt.Println(err.Error())
 	} else {
@@ -230,8 +230,21 @@ func main() {
 
 	// Solve Jospheus
 	visited := map[int]bool{}
-	for i := 0; i < 100; i++ {
+	for i := 0; i < 40; i++ {
 		visited[i] = false
 	}
-	algos.Josepheus(visited, 100, 2, 0, 100)
+	algos.Josepheus(visited, 40, 7, 0, 40)
+
+	// Push all evens at front
+	list.Head = list.PushAllEvensBeforeOdds()
+	list.Display()
+
+	// Reorder
+	list.Reorder()
+	list.Display()
+
+	// ReverseInBatches
+	fmt.Println("Reverse in Batches \n \n")
+	list.ReverseinBatches(5)
+	list.Display()
 }

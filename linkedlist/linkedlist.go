@@ -96,3 +96,29 @@ func (ll *LinkedList) DeleteNode(x int) error {
 	ll.Size -= 1
 	return nil
 }
+
+func (ll *LinkedList) InsertAtEnd(newNode ListNode) {
+
+	if ll.Head == nil {
+		ll.Head = &newNode
+		return
+	}
+	head := ll.Head
+	for head.Next != nil {
+		head = head.Next
+	}
+	head.Next = &newNode
+	return
+}
+
+func (ll *LinkedList) FindLast() *ListNode {
+	if ll.Head == nil {
+		return nil
+	} else {
+		head := ll.Head
+		for head.Next != nil {
+			head = head.Next
+		}
+		return head
+	}
+}
