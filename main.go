@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"learning/algos"
 	"learning/linkedlist"
+	"learning/stacks"
 )
 
 func main() {
@@ -247,4 +248,11 @@ func main() {
 	fmt.Println("Reverse in Batches \n \n")
 	list.ReverseinBatches(5)
 	list.Display()
+
+	//Working with stacks
+	stacks.Panel()
+
+	// Max histogram area
+	histogram := []int{6, 2, 5, 4, 5, 1, 6}
+	fmt.Println("Max histogram area is", algos.FindMaxAreaHistogram(histogram))
 }
